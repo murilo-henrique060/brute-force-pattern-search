@@ -35,7 +35,7 @@ def main():
 
     print(SEPARATOR)
 
-    print(string)
+    print(string.strip())
 
     print(SEPARATOR)
 
@@ -43,29 +43,32 @@ def main():
 
     print(SEPARATOR)
 
-    matches = brute_force_search(string, target)
+    verbose = input("Do you want verbose output? (y/N): ").lower() == 'y'
 
-    if len(matches) == 0:
-        print("No matches found.")
+    print(SEPARATOR)
+
+    match = brute_force_search(string, target, verbose)
+
+    if verbose:
+        print(SEPARATOR, end='')
+
+    if match is None:
+        print("\nNo match found.")
         return
 
-    match = 0
-
     for i, c in enumerate(string):
-        if match < len(matches) and i == matches[match]['start']:
+        if i == match['start']:
             print(f"\033[92m", end="")
 
         print(c, end="")
 
-        if match < len(matches) and i == matches[match]['end']:
+        if i == match['end']:
             print(f"\033[0m", end="")
-            match += 1
 
     print()
     print(SEPARATOR)
 
-    for match in matches:
-        print(f"Found '{match['string']}' at index {match['start']} to {match['end']}")
+    print(f"Found '{match['string']}' at index {match['start']} to {match['end']}")
 
 if __name__ == '__main__':
     main()

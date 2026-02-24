@@ -10,7 +10,3 @@ def generate_string(length: int) -> str:
         text += "\n" + lorem.paragraph()
 
     return text[:length-1] + "."
-
-
-if __name__ == '__main__':
-    print(generate_string(10))
