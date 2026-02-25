@@ -8,7 +8,7 @@ def brute_force_search(string: str, target: str, verbose: bool = False):
     if verbose:
         print(f"Starting search for '{target}' in a string of length {string_length}.\n")
 
-    while string_index < string_length:
+    while string_index + match_index < string_length:
         if string[string_index + match_index] == target[match_index]:
             if verbose:
                 if match_index == 0:

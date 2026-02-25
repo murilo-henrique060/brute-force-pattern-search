@@ -7,6 +7,6 @@ def generate_string(length: int) -> str:
     text = ""
 
     while len(text) < length:
-        text += "\n" + lorem.paragraph()
+        text += lorem.paragraph() + '\n'
 
     return text[:length-1] + "."

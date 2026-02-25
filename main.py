@@ -50,10 +50,10 @@ def main():
     match = brute_force_search(string, target, verbose)
 
     if verbose:
-        print(SEPARATOR, end='')
+        print(SEPARATOR)
 
     if match is None:
-        print("\nNo match found.")
+        print("No match found.")
         return
 
     for i, c in enumerate(string):
